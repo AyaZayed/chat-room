@@ -11,7 +11,13 @@
   --font-small: calc(0.667rem);
   --font-family: 'Open Sans', sans-serif;
   /* colors */
-
+  --primary-color: #8d84e4;
+  --light-purple: #f0eef8;
+  --dark-purple: #3c2f6b;
+  --message-background: #f2f0fc;
+  --medium-purple: #a59fbb;
+  --grey: #bfbec6;
+  --light-grey: #bfbec6d0;
 }
 
 html {
@@ -51,10 +57,12 @@ p {
   font-size: var(--font-size-basis);
 }
 
-/* ::-moz-selection {
+::-moz-selection {
   background-color: var(--primary-color);
+  color: white;
 }
 
 ::selection {
   background-color: var(--primary-color);
-} */
+  color: white;
+}
