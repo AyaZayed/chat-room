@@ -2,13 +2,11 @@ import './css/App.css'
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
 import ChatRoom from './components/ChatRoom';
-import logo from '../public/logo.png';
 
-import React, { useState } from 'react';
+import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -27,7 +25,8 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-const analytics = firebase.analytics();
+
+const logo = new URL('../public/logo.svg', import.meta.url);
 
 export default function App() {
   const [user] = useAuthState(auth);
@@ -38,7 +37,7 @@ export default function App() {
         <SignOut auth={auth} />
       </header>
       <section>
-        {user ? <ChatRoom /> : <SignIn auth={auth} />}
+        {user ? <ChatRoom firestore={firestore} auth={auth} useCollectionData={useCollectionData} firebase={firebase} /> : <SignIn auth={auth} />}
       </section>
     </div>
   )
