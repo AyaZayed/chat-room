@@ -31,15 +31,16 @@ const logo = new URL('../public/logo.svg', import.meta.url);
 export default function App() {
   const [user] = useAuthState(auth);
   return (
-    <div className="App">
-      <header>
-        <img src={logo} alt="logo" />
-        <SignOut auth={auth} />
-      </header>
-      <section>
-        {user ? <ChatRoom firestore={firestore} auth={auth} useCollectionData={useCollectionData} firebase={firebase} /> : <SignIn auth={auth} />}
+    <main className="App">
+      <section className='chat-section'>
+        <header className={`${user ? 'signed-in' : 'signed-out'} `}>
+          <img src={logo} alt="logo" />
+          <SignOut auth={auth} />
+        </header>
+        {user ? <ChatRoom firestore={firestore} auth={auth} useCollectionData={useCollectionData} firebase={firebase}>
+        </ChatRoom> : <SignIn auth={auth} />}
       </section>
-    </div>
+    </main>
   )
 }
 

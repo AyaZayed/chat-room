@@ -9,7 +9,7 @@
   --h2: calc(var(--h3) * var(--type-scale));
   --h1: calc(var(--h2) * var(--type-scale));
   --font-small: calc(0.667rem);
-  --font-family: 'Open Sans', sans-serif;
+  --font-family: 'Roboto', sans-serif;
   /* colors */
   --primary-color: #8d84e4;
   --light-purple: #f0eef8;
@@ -22,7 +22,8 @@
 
 html {
   font-size: 100%;
-  font-family: var(--font-family);
+  font-family: var(--font-family, 'Roboto', sans-serif);
+  color: var(--dark-purple);
 }
 
 ul {

@@ -22,8 +22,6 @@ export default function ChatRoom({ firestore, useCollectionData, auth, firebase 
 
     const [inputValue, setInputValue] = React.useState('');
 
-    console.log(auth.currentUser)
-
     return (
         <div className='chatroom'>
             <div className='messages'>
@@ -36,7 +34,7 @@ export default function ChatRoom({ firestore, useCollectionData, auth, firebase 
             <form onSubmit={sendMessage}>
                 <input ref={ref} type='text' value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)} placeholder='Say something...' />
-                <button type='submit' disabled={!inputValue}>Send</button>
+                <button type='submit' disabled={!inputValue}>+</button>
             </form>
         </div>
     )
